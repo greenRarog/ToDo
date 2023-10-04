@@ -21,7 +21,17 @@
                     <h3><a href="{{ url('todo') . '/' . $beforeDate }}"><<</a> {{ $date }}  <a href="{{ url('todo') . '/' . $nextDate }}">>></a></h3>
                     <ul>
                         @foreach($todoList as $todo) 
-                            <li>{{ $todo->content }} <=> {{ $todo->date_complite }}</li>
+                            <li>
+                                {{ $todo->content }} <=> {{ $todo->date_complite }}
+                                теги:
+                                @if(!empty($todo->tags))
+                                    @foreach($todo->tags as $tag)
+                                        <a href="{{ url('/filter?tag=') . $tag->id }}">{{ $tag->name }}</a>
+                                    @endforeach
+                                @else 
+                                пока нет 
+                                @endif
+                            </li>
                         @endforeach
                     </ul>
                 </div>

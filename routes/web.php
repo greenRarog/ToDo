@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\TodoApiController;
+use App\Http\Controllers\FilterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +27,7 @@ Route::middleware(['auth', 'verified'])->group( function() {
     })->name('dashboard');
     Route::get('/todo', [TodoController::class, 'todo']);
     Route::get('/api/todo/{context}/{date_complite?}', [TodoApiController::class, 'get']);
+    Route::get('filter', [FilterController::class, 'filter']);
 });
 
 

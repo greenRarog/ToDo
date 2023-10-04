@@ -36,8 +36,7 @@ class TodoController extends Controller
         $date->addDay();
         $beforeDate = '?day=' . $beforeDate->format('d') . '&month=' . $beforeDate->format('m') . '&year=' . $beforeDate->format('Y');        
 
-        $todoList = Todo::where('date_complite', '=', $date)->get();        
-        
+        $todoList = Todo::with(['tags'])->where('date_complite', '=', $date)->get();            
         $date = $date->toFormattedDateString();
         return view('todo.todo', compact('date', 'todoList', 'nextDate', 'beforeDate'));
     }

@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class TodoApiController extends Controller
 {
-    public function get($context, $date_complite = null)
+    public function get($content, $date_complite = null)
     {
         if (!isset($date_complite) || $date_complite == null) {
             $date_complite = Carbon::today();
@@ -18,7 +18,7 @@ class TodoApiController extends Controller
         }
 
         $todo = Todo::new();
-        $todo->context = $context;
+        $todo->content = $content;
         $todo->date_complite = $date_complite;
         $todo->save();
 
