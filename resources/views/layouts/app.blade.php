@@ -32,5 +32,16 @@
                 {{ $slot }}
             </main>
         </div>
+<script>
+    // let button = document.querySelector(".send");    
+    // button.addEventListener('click', function() {
+        
+    // });
+
+
+    // function addQuest() {
+        
+    // }
+</script>
     </body>
 </html>
